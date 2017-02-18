@@ -1,0 +1,108 @@
+extends layout.pug
+
+//- Set page title
+block title
+	title Boundless
+
+//- Yay styling
+block style
+	style.
+		.jumbotron {
+			padding-bottom: 0px;
+		}
+
+		@media(min-width: 576px) {
+			.jumbotron {
+				padding-bottom: 16px;
+			}
+		}
+
+		.realign {
+			margin: 8px 0;
+		}
+
+		.jumbotron-bg video {
+			position: fixed;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			transform: translate(-50%, -50%);
+		}
+
+		.jumbotron-bg {
+			z-index: -50;
+			background: none;
+		}
+
+		.tint-bg {
+			background: none;
+		}
+
+		.fillback {
+			background-color: #FFFFFF;
+			margin-top: -32px;
+			padding: 32px 0;
+		}
+
+
+//- Set active nav item
+block navhome
+	li.nav-item.active
+		a.nav-link(href="/") Home
+
+//- Background video
+block jumbotron-top
+	video(autoplay, showcontrols="false", loop, preload="metadata", muted, playsinline)
+		source(src="/videos/mainback/h264-1920.mp4", type="video/mp4")
+		source(src="/videos/mainback/vp8-1920.webm", type="video/webm")
+		source(src="/videos/mainback/vp9-1920.webm", type="video/webm")
+
+//- Set jumbotron
+block jumbotron-inner
+	h1.jumbotron-text Boundless
+	p.lead A friendly Discord server for everyone
+	hr.my-4
+	.row
+		a.lead.col-sm-2.btn.btn-outline-primary.btn-lg(href=widget.instant_invite, role="button") Join us
+		p.lead.col-sm.text-sm-right.text-center.realign
+			span#membercount=widget.members.length
+			=" friends online right now"
+
+//- Heck yes content
+block content
+	h1 Meet people
+	p Boundless is a welcoming server where you can chat and make new friends!
+
+	h1 Fuck bees
+	p Right in their tight little bee assholes
+
+	h1 aaaaaaaaaaaaaaaaaaaaaaa
+	p aaaaa aaaaa aaaaa aaa aaaaa aaaaaaaaaaa aaaaaaaaaa aaaaa aaaaa aaaaaaaa aaaaaaaaa aaaaaaaaaa aaaaa aaaaaaaaaa aaaaaa aaa aaaa aaaaa aaaaaaaaa aaaa aaaaa aaaaaaaaa aaaaa aaaaa aaaaaaa aaaa aaaaa aa aaaaaa aaaa aaaaaa aaaaaaa aaaaaaaaa aa aaaaaa aaa aaaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaa aaaa aaaaa aa aaaaa aaaaaaa aaaaaaa aaaaa aaaaa aaaaaaaa aa aaaaaa aaa aaaaaaaaa aaaaaaa aaaaa aaaaaaaaaa aaaa aaaaa aaaaaa aa aaaaaaaa aaaa aaaaaa aa aaaaaaaa aaaaaaa aaaaaaa aaaaaa aaaaa aaaa aaa aaaaaaa a aaaaa aaaaa aaaaaaa aaaaaaaa aaaaa aaaa aaa aaaaa aa aaaaa aaaaaaaaa aaaaaaaaaaa aaaa aa aaaaaaa aa aaaaaaaa aaaaa aaaaaa aa aaaaaaaaa aaaaaa aaaaaaaaa aaa aaaaa aaaaaaaaa aaaaaaa aaaaaa a aaaaaa aaaaaa aaaaaaaa aaaa aaaaaaaaa aaaaaaaaa aa aaaaaa aa aaaaaaaa aaaaa aa aaa aa aaaa aaaaaaaa aaaaaaa aaaaa a aaaaaaa aaaaaa aaaa aaaaaaaaa aaaaaa aa aaaaaaa aaaaaa aaaaaaa aa aaaaaaaaaa aaaaaa
+
+	h2 "Wicked rad"
+	p - Claire
+
+	h2 "10/10"
+	p - DM
+
+//- Scripting yay
+block endscripts
+	script.
+		$.ajaxSetup({
+			cache: false
+		});
+		
+		// Live update of member count
+		function updateMemberCount() {
+			$.get("#{widgetURL}", "", function(data) {
+				if (data && data.members) {
+					console.log(data.members.length);
+					membercount.innerText = data.members.length;
+				}
+			}, "json");
+		}
+		setInterval(updateMemberCount, 1000);

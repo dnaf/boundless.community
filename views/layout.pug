@@ -1,0 +1,93 @@
+doctype html
+
+html
+	head
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", crossorigin="anonymous")
+
+		block title
+			title Example page
+
+		meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+		style.
+			.jumbotron-bg {
+				background-image: url('/backgrounds/seasonal/1920.jpg');
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed;
+			}
+
+			@media (min-width: 1921px) { /* Load bigger images */
+				.jumbotron-bg {
+					background-image: url('/backgrounds/seasonal/full.jpg');
+				}
+			}
+
+			.jumbotron {
+				z-index: -100;
+			}
+
+			.jumbotron-text {
+				font-size: 3.5rem;
+				font-weight: 300;
+				line-height: 1.1;
+			}
+
+			@media (min-width: 768px) {
+				.jumbotron-text {
+					font-size: 6rem;
+				}
+			}
+
+			.tint-bg {
+				background-color: rgba(0, 0, 0, 0.7);
+				border-radius: 0;
+			}
+		block style
+		
+		script(src="https://use.fontawesome.com/a157d173e6.js")
+		block topscripts
+	body
+		.jumbotron-bg
+			block jumbotron-top
+			nav.navbar.navbar-inverse.navbar-toggleable-sm.tint-bg
+				button.navbar-toggler.navbar-toggler-right(type="button", data-toggle="collapse", data-target="#navbar", aria-controls="navbar", aria-expanded="false", aria-label="Toggle navigation")
+					span.navbar-toggler-icon
+				a.navbar-brand(href="/")
+					img.d-inline-block.align-top(src="./smiley_white_cropped.png", width="30", height="30")
+				#navbar.collapse.navbar-collapse
+					ul.navbar-nav.mr-auto
+						block navitems
+							block navhome
+								li.nav-item
+									a.nav-link(href="/") Home
+							block navrules
+								li.nav-item
+									a.nav-link(href="/rules") Rules
+							block navevents
+								li.nav-item
+									a.nav-link(href="/events") Events
+			.jumbotron.text-white.tint-bg
+				block jumbotron-inner
+					h1.jumbotron-text Title
+					p.lead Some extra information.
+		block precontent
+		.fillback
+			.container
+				block content
+					h2 Content
+
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus ligula quis cursus ultricies. In a odio sollicitudin, sagittis justo ut, tempor mauris. Etiam dictum mollis est, ac varius lacus consectetur sed. Praesent ultricies euismod consequat. Etiam nec diam condimentum leo ornare tempus. Donec convallis quam felis, a sagittis urna pulvinar vitae. Quisque sagittis elit sed justo maximus tincidunt. Vivamus sapien sem, tempus lacinia rutrum in, vestibulum non sem. Nulla laoreet ac dolor ac pellentesque. Aenean accumsan aliquam augue non aliquet. Ut rhoncus lectus non tortor cursus, at blandit dui vehicula. Ut ac facilisis ex. Curabitur lacinia metus nulla, non porttitor nisi egestas laoreet. Sed lobortis quis sem ac iaculis. Suspendisse vitae luctus lacus.
+
+					p Ut porta ex lectus, vel pretium metus feugiat vel. Donec eros mi, porttitor malesuada ultricies vitae, volutpat vitae magna. Nunc posuere eros augue, eu suscipit massa efficitur a. Nunc semper justo ligula, eu blandit turpis scelerisque a. Duis eu dui nisl. Nullam ut justo ac turpis iaculis euismod. Sed vel sem quis elit pharetra ornare sed sit amet lacus. Aliquam vestibulum est id faucibus condimentum. Pellentesque at felis a turpis fringilla placerat ac eget magna.
+
+					p Vivamus pretium, enim ut venenatis pretium, felis ligula iaculis tellus, ac convallis metus augue sed est. Maecenas auctor neque id augue fringilla, vel consequat sem interdum. Pellentesque sem augue, viverra eu posuere ut, aliquam et tortor. Aenean dictum velit orci, at lobortis lacus pharetra quis. Cras tristique justo eget ante interdum, at consectetur quam blandit. Praesent elementum ornare lobortis. Cras at turpis non elit suscipit laoreet convallis sed metus. Etiam vestibulum cursus mi, non lobortis ante tempor non. Curabitur nec tellus dapibus, consequat quam nec, eleifend metus. Phasellus aliquam, quam vitae cursus hendrerit, mauris quam pulvinar lectus, quis accumsan augue turpis et ex.
+
+					p Etiam commodo fermentum euismod. Vestibulum eget felis nisi. Aenean pellentesque sit amet justo ac convallis. Pellentesque fringilla orci nunc, sit amet venenatis urna pharetra non. Sed venenatis et dolor ac vestibulum. Aliquam sit amet mattis massa, ut congue justo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+					p Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum posuere quis orci placerat fermentum. Aliquam faucibus condimentum est, nec venenatis neque porta a. Pellentesque maximus magna nec quam posuere tempus. Phasellus id scelerisque mi. Quisque non egestas nisl, id convallis tortor. Morbi nec sapien ut turpis ultricies rutrum et sed augue. Etiam odio arcu, semper nec consectetur vel, fringilla non ligula. Nullam eleifend bibendum imperdiet.
+
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js", integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", crossorigin="anonymous")
+		block endscripts

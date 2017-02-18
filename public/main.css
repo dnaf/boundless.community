@@ -1,0 +1,80 @@
+
+.jumbotron-bg {
+	background-image: url('/backgrounds/seasonal/1920.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+@media (min-width: 1921px) { /* Load bigger images */
+	.jumbotron-bg {
+		background-image: url('/backgrounds/seasonal/full.jpg');
+	}
+}
+
+.jumbotron {
+	z-index: -100;
+}
+
+.jumbotron-text {
+	font-size: 3.5rem;
+	font-weight: 300;
+	line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+	.jumbotron-text {
+		font-size: 6rem;
+	}
+}
+
+.tint-bg {
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 0;
+}
+
+.bg-kindaorange {
+	background-color: #F5531D!important;
+}
+
+
+		.jumbotron {
+			padding-bottom: 0px;
+		}
+
+		@media(min-width: 576px) {
+			.jumbotron {
+				padding-bottom: 16px;
+			}
+		}
+
+		.realign {
+			margin: 8px 0;
+		}
+
+		.jumbotron-bg video {
+			position: fixed;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			transform: translate(-50%, -50%);
+		}
+
+		.jumbotron-bg {
+			z-index: -50;
+			background: none;
+		}
+
+		.tint-bg {
+			background: none;
+		}
+
+		.fillback {
+			background-color: #FFFFFF;
+			margin-top: -32px;
+			padding: 32px 0;
+		}

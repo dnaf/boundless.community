@@ -1,0 +1,55 @@
+extends layout.pug
+
+//- Set page title
+block title
+	title Server rules
+
+//- Set active nav item
+block navrules
+	li.nav-item.active
+		a.nav-link(href="/rules") Rules
+
+//- Add styling
+block style
+	style.
+		.bg-kindaorange {
+			background-color: #F5531D!important;
+		}
+
+//- Set jumbotron
+block jumbotron-inner
+	h1.jumbotron-text Server rules
+	p.lead The moderators are free to act under their own discretion. If you feel that you have been unjustly punished, please contact a staff member.
+
+//- Whooh! Content!
+block content
+	each section in sections
+		.container-fluid.mt-5
+			h3.mt-6= section.header
+			table.table
+				tbody
+					each rule in section.rules
+						tr
+							case rule.severity
+								when "info"
+									td.bg-info.align-middle.text-center
+										i.fa.fa-info-circle.text-white(aria-hidden="true")
+								when "warning"
+									td.bg-warning.align-middle.text-center(data-toggle="tooltip", data-placement="top", title="Breaking this rule will result in a warning")
+										i.fa.fa-exclamation-triangle.text-white(aria-hidden="true")
+								when "kick"
+									td.bg-kindaorange.align-middle.text-center(data-toggle="tooltip", data-placement="top", title="Breaking this rule will result in an immediate kick")
+										i.fa.fa-times-circle.text-white(aria-hidden="true")
+								when "ban"
+									td.bg-danger.align-middle.text-center(data-toggle="tooltip", data-placement="top", title="Breaking this rule will result in an immediate ban")
+										i.fa.fa-ban.text-white(aria-hidden="true")
+								default
+									td.align-middle
+							td= rule.text
+
+//- Enable tooltips
+block endscripts
+	script.
+		$(function() {
+			$("[data-toggle=\"tooltip\"]").tooltip();
+		});

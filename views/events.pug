@@ -1,0 +1,53 @@
+extend layout.pug
+
+//- Set page title
+block title
+	title Server events
+
+//- Set active nav item
+block navevents
+	li.nav-item.active
+		a.nav-link(href="/events") Events
+
+//- Set jumbotron
+block jumbotron-inner
+	h1.jumbotron-text Server events
+	p.lead Stuff we like to do
+
+//- Add some content
+block content
+	h1 Weekly Movie Night
+	p.lead.tzfix(tzfix-time="1483758000", tzfix-rep="weekly+hour") Fridays at 10 PM EST
+	p Join us as we watch a movie of your choice, streamed live in your web browser for free.
+	hr
+	h1 Poop Day
+	//-p.lead.tzfix(tzfix-time="1486415103", tzfix-rep="weekly+hour")
+	p.lead The first Monday of every month
+	p Eat some poopy!
+
+block endscripts
+	script.
+		$(function() {
+			$(".tzfix").each(function(i, elem) {
+				let time = new Date(Number($(elem).attr("tzfix-time")) * 1000),
+					rep = $(elem).attr("tzfix-rep"),
+					localized = ""
+					daysPluralized = ["Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays"];
+				console.log($(elem).attr("tzfix-time"));
+				switch(rep) {
+					case "weekly+hour":
+						localized += daysPluralized[time.getDay()];
+						
+						let hour = time.getHours() % 12;
+						if (hour === 0) {
+							hour = 12;
+						}
+						localized += " at " + hour + " ";
+						localized += time.getHours() >= 12 ? "PM" : "AM";
+						
+						break;
+				}
+				
+				$(elem).text(localized);
+			})
+		});
