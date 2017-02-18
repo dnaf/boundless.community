@@ -1,12 +1,14 @@
 sections:
     - header: "Be respectful and courteous to all users of this community!"
       rules:
-        - text: "Impersonating anybody, regardless of whether they are a user here, will not be tolerated."
-          severity: warning
         - text: "Offensive language, racial slurs, hate speech, and any form of discrimination will not be tolerated."
           severity: kick
+        - text: "Impersonating anybody, regardless of whether they are a user here, will not be tolerated."
+          severity: warning
         - text: "Please try to keep your thoughts in one message, rather than multiple lines."
           severity: warning
+        - text: "Don't make light of mental illness or self harm'"
+          
         - text: "Trying to incite flame wars or baiting people into arguing will not be tolerated."
           severity: warning
     - header: "Keep all content PG-13."
@@ -18,7 +20,7 @@ sections:
     - header: "No spam."
       rules:
         - text: "Discord server invites posted by non-staff are automatically deleted."
-          severity: warning
+          severity: info
         - text: "Don't send unsolicited advertisements/Discord invites to users via DM."
           severity: kick
         - text: "No text or image spam in #general. This includes needless use of copypasta, memes, and emoji."
