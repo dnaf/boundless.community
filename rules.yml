@@ -28,7 +28,7 @@ sections:
         - text: "Please only use @Staff pings for urgent emergencies. Most of the time, it's better to ping an individual staff member who's online."
           severity: warning
           bold: true
-    - header: "The :) server does not condone illegal activities of any kind."
+    - header: "Boundless does not condone illegal activities of any kind."
       rules:
         - text: "This includes piracy and otherwise illegal acquisition of copyrighted material."
           severity: warning
