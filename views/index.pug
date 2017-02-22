@@ -100,7 +100,6 @@ block endscripts
 		function updateMemberCount() {
 			$.get("#{widgetURL}", "", function(data) {
 				if (data && data.members) {
-					console.log(data.members.length);
 					membercount.innerText = data.members.length;
 				}
 			}, "json");
